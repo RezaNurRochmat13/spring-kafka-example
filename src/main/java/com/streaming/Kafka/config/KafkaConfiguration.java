@@ -13,12 +13,12 @@ import java.util.Map;
 @Configuration
 public class KafkaConfiguration {
     @Value("${spring.kafka.bootstrap-servers}")
-    private String kafkaBrokerAdress;
+    private String kafkaBrokerAddress;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> config = new HashMap<>();
-        config.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBrokerAdress);
+        config.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBrokerAddress);
 
         return new KafkaAdmin(config);
     }
