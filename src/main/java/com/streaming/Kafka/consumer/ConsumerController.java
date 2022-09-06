@@ -15,10 +15,6 @@ import org.springframework.stereotype.Controller;
 public class ConsumerController {
     Logger logger = LoggerFactory.getLogger(ConsumerController.class);
 
-    @Value("${spring.kafka.user.topic}")
-    private String userTopic;
-    @Value("${spring.kafka.consumer.group-id}")
-    private String kafkaBrokerGroupId;
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
