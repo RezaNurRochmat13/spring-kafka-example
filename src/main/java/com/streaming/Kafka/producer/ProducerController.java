@@ -28,7 +28,7 @@ public class ProducerController {
 
     @PostMapping("/publish")
     public String sendMessageToUserTopic(@RequestBody String message) {
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate
+        ListenableFuture<SendResult<String, String>> future = (ListenableFuture<SendResult<String, String>>) kafkaTemplate
                 .send(userTopic, message);
 
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
